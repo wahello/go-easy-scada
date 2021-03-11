@@ -1,12 +1,8 @@
 package main
 
 import (
-	"esd-router-preview/adapter/transmit"
-	"esd-router-preview/core/ticker"
-	"esd-router-preview/custom"
 	"esd-router-preview/engine"
 	"fmt"
-	"time"
 )
 
 func main() {
@@ -18,15 +14,15 @@ func main() {
 		return
 	}
 
-	tengine.GetEventBus().Mount(custom.DealData)
+	//tengine.GetEventBus().Mount(custom.DealData)
 	tengine.Start()
-	ticker.NewTicker(time.Second, true, func() {
-
-		tengine.GetEventBus().Send(transmit.TypeMessageChannel{
-			Data:    custom.SendMonitor(),
-			Message: "MESSAGE_SEND_TO_MONITOR",
-		})
-	}).Start()
+	//ticker.NewTicker(time.Second, true, func() {
+	//
+	//	tengine.GetEventBus().Send(transmit.TypeMessageChannel{
+	//		Data:    custom.SendMonitor(),
+	//		Message: "MESSAGE_SEND_TO_MONITOR",
+	//	})
+	//}).Start()
 
 	for {
 

@@ -9,7 +9,6 @@ import (
 	"errors"
 	"esd-router-preview/adapter/transmit"
 	"esd-router-preview/utilio"
-
 )
 
 func NewNatsOutput() transmit.ISource {
