@@ -1,0 +1,46 @@
+{
+  "plugin": {
+    "testmqinput": {
+      "module": "mqinput",
+      "param": "addr=nats://127.0.0.1:4222;topic=ESD_ROUTER"
+    },
+    "testmqoutput": {
+      "module": "mqoutput",
+      "param": "addr=nats://127.0.0.1:4222;topic=ESD_MONITOR_COLLECTOR"
+    },
+    "custom": {
+        "module": "webpost",
+        "param":  "posturl=http://127.0.0.1:3309/get"
+    }
+  },
+  "message": {
+    "MESSAGE_SEND_TO_MONITOR": {
+      "pub": ["testmqinput"],
+      "sub": ["testmqoutput"]
+    },
+    "MESSAGE_SEND_TO_FACE_GUARD": {
+      "pub": [],
+      "sub": []
+    },
+    "MESSAGE_SEND_TO_NORMAL_GUARD": {
+      "pub": [],
+      "sub": []
+    },
+    "MESSAGE_SEND_TO_ALL_GUARD": {
+      "pub": [],
+      "sub": []
+    },
+    "MESSAGE_RECV_FROM_MONITOR": {
+      "pub": [],
+      "sub": []
+    },
+    "MESSAGE_RECV_FROM_FACE_GUARD":{
+      "pub": [],
+      "sub": []
+    },
+    "MESSAGE_RECV_FROM_NORMAL_GUARD": {
+      "pub": [],
+      "sub": []
+    }
+  }
+}
